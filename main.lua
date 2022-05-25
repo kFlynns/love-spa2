@@ -1,11 +1,8 @@
 #!/usr/bin/env lua
-
 require 'symbols'
-local width = 1280
-local height = width / 16 * 9
+local width, height = 1280, 1280 / 16 * 9
 local video
 local game_state
-
 
 -- load event
 function love.load()
@@ -13,7 +10,7 @@ function love.load()
   love.window.setTitle('Space Patrol Aviator 2')
   love.window.setMode(width, height, {
     resizable = true,
-    vsync = false,
+    vsync = true,
     msaa = 0,
     fullscreen = false
   })
@@ -44,9 +41,9 @@ end -- function
 
 
 -- update world
-function love.update()
+function love.update(delta)
   InputHub.update()
-  Physics:update()
+  Physics:update(delta)
 end -- function
 
 

@@ -17,7 +17,6 @@ local ship_input = {
 
 -- called from game loop
 function InputHub.update()
-  
   -- reset ship inputs
   ship_input = {
     accelerate = false,
@@ -28,7 +27,6 @@ function InputHub.update()
     quick_travel = 0.0
   }
   InputHub.__handle_Hids_for_ships()
-  
 end -- function
 
 

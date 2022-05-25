@@ -23,12 +23,13 @@ end -- function
 
 -- update all stuff
 function Space.update_game()
-  Camera:update()
   Space.__draw_star_field()
+  Camera:start_record()
   -- entities
   for e = 1, #entities do
     entities[e]:update()
   end -- for
+  Camera:stop_record()
   Space.__draw_hud()
 end -- function
 
@@ -47,7 +48,6 @@ function Space.__draw_star_field()
     end -- for x
   end -- for y
   MediaStore.flush_sprite_batch("stars")
-  
   
   love.graphics.setColor(0.2, 0.2, 0.2)
   
